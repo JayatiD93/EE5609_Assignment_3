@@ -311,128 +311,246 @@ Find the modulus of :
 \section{Explanation}
 %\input{./chapters/constr.tex}
 
-In general if $\vec{z_1}$ and $\vec{z_2}$ are two complex numbers, then they can be expressed as:\\
-\begin{equation}
-\begin{aligned}
-\vec{z_1} = r_1 \begin{pmatrix}
-      \cos\theta_1 \\ 
-      \sin\theta_1 \\
-      \end{pmatrix}
-\end{aligned}
-\end{equation}
-\begin{equation}
-\begin{aligned}
-\vec{z_2} = r_2 \begin{pmatrix}
-      \cos\theta_2 \\ 
-      \sin\theta_2 \\
-      \end{pmatrix}
-\end{aligned}
-\end{equation}
-$\&$
-\begin{equation}
-\begin{aligned}
-\vec{z_1} \vec{z_2} = r_1r_2 \begin{pmatrix}
-      \cos(\theta_1 + \theta_2) \\ 
-      \sin(\theta_1 + \theta_2) \\
-      \end{pmatrix}
-\end{aligned}
-\end{equation}
-Now, \\
+%In general if $\vec{z_1}$ and $\vec{z_2}$ are two complex numbers, then they can be expressed as:\\
+%\begin{equation}
+%\begin{aligned}
+%\vec{z_1} = r_1 \begin{pmatrix}
+%      \cos\theta_1 \\ 
+%      \sin\theta_1 \\
+%      \end{pmatrix}
+%\end{aligned}
+%\end{equation}
+%\begin{equation}
+%\begin{aligned}
+%\vec{z_2} = r_2 \begin{pmatrix}
+%      \cos\theta_2 \\ 
+%      \sin\theta_2 \\
+%      \end{pmatrix}
+%\end{aligned}
+%\end{equation}
+%$\&$
+%\begin{equation}
+%\begin{aligned}
+%\vec{z_1} \vec{z_2} = r_1r_2 \begin{pmatrix}
+%      \cos(\theta_1 + \theta_2) \\ 
+%      \sin(\theta_1 + \theta_2) \\
+%      \end{pmatrix}
+%\end{aligned}
+%\end{equation}
+%Now, \\
+%
+%\begin{align}
+%\vec{z_1} = \begin{pmatrix}
+%      1 \\ 
+%      1 \\
+%      \end{pmatrix} = \sqrt{2}\begin{pmatrix}
+%      \cos45^{\circ} \\ 
+%      \sin45^{\circ} \\
+%      \end{pmatrix}
+%\end{align}
+%
+%$\&$
+%\begin{align}
+%\vec{z_2} = \begin{pmatrix}
+%      1 \\ 
+%      -1 \\
+%      \end{pmatrix}^{-1} = \frac{1}{\sqrt{2}}\begin{pmatrix}
+%      \cos45^{\circ} \\ 
+%      \sin45^{\circ} \\
+%      \end{pmatrix}
+%\end{align}
+%So, \\
+%\begin{equation}
+%\begin{aligned}
+%\vec{z_1} \vec{z_2} = \frac{\begin{pmatrix}
+%      1 \\ 
+%      1 \\
+%      \end{pmatrix}}{\begin{pmatrix}
+%      1 \\ 
+%      -1 \\
+%      \end{pmatrix}}=\begin{pmatrix}
+%      1 \\ 
+%      1 \\
+%      \end{pmatrix} \begin{pmatrix}
+%      1 \\ 
+%      -1 \\
+%      \end{pmatrix}^{-1} = \sqrt{2}\frac{1}{\sqrt{2}}\begin{pmatrix}
+%      \cos(45^{\circ}+45^{\circ})\\ 
+%      \sin(45^{\circ}+45^{\circ})\\
+%      \end{pmatrix}\\
+%      =\begin{pmatrix}
+%      \cos90^{\circ} \\ 
+%      \sin90^{\circ} \\
+%      \end{pmatrix}
+%\end{aligned}
+%\end{equation}
+%Similarly,\\
+%\begin{align}
+%\vec{z_3} = \begin{pmatrix}
+%      1 \\ 
+%      -1 \\
+%      \end{pmatrix} = \sqrt{2}\begin{pmatrix}
+%      \cos45^{\circ} \\ 
+%      -\sin45^{\circ} \\
+%      \end{pmatrix}
+%\end{align}
+%
+%$\&$
+%\begin{align}
+%\vec{z_4} = \begin{pmatrix}
+%      1 \\ 
+%      1 \\
+%      \end{pmatrix}^{-1} = \frac{1}{\sqrt{2}}\begin{pmatrix}
+%      \cos45^{\circ} \\ 
+%      -\sin45^{\circ} \\
+%      \end{pmatrix}
+%\end{align}
+%So,\\
+%\begin{equation}
+%\begin{aligned}
+%\vec{z_3} \vec{z_4} = \frac{\begin{pmatrix}
+%      1 \\ 
+%      -1 \\
+%      \end{pmatrix}}{\begin{pmatrix}
+%      1 \\ 
+%      1 \\
+%      \end{pmatrix}}=\begin{pmatrix}
+%      1 \\ 
+%      -1 \\
+%      \end{pmatrix} \begin{pmatrix}
+%      1 \\ 
+%      1 \\
+%      \end{pmatrix}^{-1} = \sqrt{2}\frac{1}{\sqrt{2}}\begin{pmatrix}
+%      \cos(45^{\circ}+45^{\circ})\\ 
+%      \sin(-45^{\circ}-45^{\circ})\\
+%      \end{pmatrix}\\
+%      =\begin{pmatrix}
+%      \cos90^{\circ} \\ 
+%      -\sin90^{\circ} \\
+%      \end{pmatrix}
+%\end{aligned}
+%\end{equation}
 
+In general, any complex number can be expressed in matrix representation as follows:\\
 \begin{align}
-\vec{z_1} = \begin{pmatrix}
+     \begin{pmatrix}
+      a_1 \\ 
+      a_2 \\
+      \end{pmatrix} = \begin{pmatrix}
+      a_1    & -a_2\\ 
+      a_2    & a_1\\
+      \end{pmatrix}\begin{pmatrix}
+      1\\ 
+      0\\
+      \end{pmatrix}
+\end{align}
+
+In our case, \\
+\begin{align}
+     \begin{pmatrix}
       1 \\ 
       1 \\
-      \end{pmatrix} = \sqrt{2}\begin{pmatrix}
-      \cos45^{\circ} \\ 
-      \sin45^{\circ} \\
+      \end{pmatrix} = \begin{pmatrix}
+      1    & -1\\ 
+      1    & 1\\
+      \end{pmatrix}\begin{pmatrix}
+      1\\ 
+      0\\
       \end{pmatrix}
 \end{align}
 
 $\&$
+
 \begin{align}
-\vec{z_2} = \begin{pmatrix}
+     \begin{pmatrix}
       1 \\ 
       -1 \\
-      \end{pmatrix}^{-1} = \frac{1}{\sqrt{2}}\begin{pmatrix}
-      \cos45^{\circ} \\ 
-      \sin45^{\circ} \\
+      \end{pmatrix} = \begin{pmatrix}
+      1    & 1\\ 
+      -1    & 1\\
+      \end{pmatrix}\begin{pmatrix}
+      1\\ 
+      0\\
       \end{pmatrix}
 \end{align}
-So, \\
-\begin{equation}
-\begin{aligned}
-\vec{z_1} \vec{z_2} = \frac{\begin{pmatrix}
+
+Now,\\
+
+\begin{align}
+     \frac{\begin{pmatrix}
       1 \\ 
       1 \\
       \end{pmatrix}}{\begin{pmatrix}
       1 \\ 
       -1 \\
-      \end{pmatrix}}=\begin{pmatrix}
-      1 \\ 
-      1 \\
-      \end{pmatrix} \begin{pmatrix}
-      1 \\ 
-      -1 \\
-      \end{pmatrix}^{-1} = \sqrt{2}\frac{1}{\sqrt{2}}\begin{pmatrix}
-      \cos(45^{\circ}+45^{\circ})\\ 
-      \sin(45^{\circ}+45^{\circ})\\
+      \end{pmatrix}} = \begin{pmatrix}
+      1    & -1\\ 
+      1    & 1\\
+      \end{pmatrix}\begin{pmatrix}
+      1    & 1\\ 
+      -1    & 1\\
+      \end{pmatrix}^{-1}\begin{pmatrix}
+      1\\ 
+      0\\
       \end{pmatrix}\\
-      =\begin{pmatrix}
-      \cos90^{\circ} \\ 
-      \sin90^{\circ} \\
+      = \begin{pmatrix}
+      0\\ 
+      1\\
       \end{pmatrix}
-\end{aligned}
-\end{equation}
+\end{align}
+
 Similarly,\\
-\begin{align}
-\vec{z_3} = \begin{pmatrix}
-      1 \\ 
-      -1 \\
-      \end{pmatrix} = \sqrt{2}\begin{pmatrix}
-      \cos45^{\circ} \\ 
-      -\sin45^{\circ} \\
-      \end{pmatrix}
-\end{align}
 
-$\&$
 \begin{align}
-\vec{z_4} = \begin{pmatrix}
-      1 \\ 
-      1 \\
-      \end{pmatrix}^{-1} = \frac{1}{\sqrt{2}}\begin{pmatrix}
-      \cos45^{\circ} \\ 
-      -\sin45^{\circ} \\
-      \end{pmatrix}
-\end{align}
-So,\\
-\begin{equation}
-\begin{aligned}
-\vec{z_3} \vec{z_4} = \frac{\begin{pmatrix}
+     \frac{\begin{pmatrix}
       1 \\ 
       -1 \\
       \end{pmatrix}}{\begin{pmatrix}
       1 \\ 
       1 \\
-      \end{pmatrix}}=\begin{pmatrix}
-      1 \\ 
-      -1 \\
-      \end{pmatrix} \begin{pmatrix}
+      \end{pmatrix}} = \begin{pmatrix}
+      1    & 1\\ 
+      -1    & 1\\
+      \end{pmatrix}\begin{pmatrix}
+      1    & -1\\ 
+      1    & 1\\
+      \end{pmatrix}^{-1}\begin{pmatrix}
+      1\\ 
+      0\\
+      \end{pmatrix}\\
+      = \begin{pmatrix}
+      0\\ 
+      -1\\
+      \end{pmatrix}
+\end{align}
+
+So,\\
+
+\begin{align}
+\frac{\begin{pmatrix}
       1 \\ 
       1 \\
-      \end{pmatrix}^{-1} = \sqrt{2}\frac{1}{\sqrt{2}}\begin{pmatrix}
-      \cos(45^{\circ}+45^{\circ})\\ 
-      \sin(-45^{\circ}-45^{\circ})\\
-      \end{pmatrix}\\
-      =\begin{pmatrix}
-      \cos90^{\circ} \\ 
-      -\sin90^{\circ} \\
+      \end{pmatrix}}{\begin{pmatrix}
+      1 \\ 
+      -1 \\
+      \end{pmatrix}} - \frac{\begin{pmatrix}
+      1 \\ 
+      -1 \\
+      \end{pmatrix}}{\begin{pmatrix}
+      1 \\ 
+      1 \\
+      \end{pmatrix}} = \begin{pmatrix}
+      0\\ 
+      1\\
+      \end{pmatrix} - \begin{pmatrix}
+      0\\ 
+      -1\\
+      \end{pmatrix} \\
+      = \begin{pmatrix}
+      0\\ 
+      2\\
       \end{pmatrix}
-\end{aligned}
-\end{equation}
-
-
-
+\end{align}
 \section{Solution}
 Now, according to the problem statement:\\
 \begin{align}
@@ -449,17 +567,9 @@ Now, according to the problem statement:\\
       1 \\ 
       1 \\
       \end{pmatrix}} \\
-      = \vec{z_1} \vec{z_2} - \vec{z_3} \vec{z_4}\\
       = \begin{pmatrix}
-      \cos90^{\circ} \\ 
-      \sin90^{\circ} \\
-      \end{pmatrix} - \begin{pmatrix}
-      \cos90^{\circ} \\ 
-      -\sin90^{\circ} \\
-      \end{pmatrix} \\
-      = \begin{pmatrix}
-      0 \\ 
-      2 \\
+      0\\ 
+      2\\
       \end{pmatrix}
 \end{align} 
 $\therefore$ 
@@ -477,7 +587,6 @@ $\therefore$
       1 \\ 
       1 \\
       \end{pmatrix}}} \\
-      = \norm {\vec{z_1} \vec{z_2} - \vec{z_3} \vec{z_4}}\\
       =\norm{\begin{pmatrix}
       0 \\ 
       2 \\

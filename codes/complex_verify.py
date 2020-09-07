@@ -5,50 +5,79 @@ from numpy import linalg as LA
 #print('Enter the vector')
 a1=1
 a2=1
-m1=np.array([a1,a2])
-#print(m1)
-r1= np.sqrt(a1**2 + a2**2)
-#print(r1)
-arg1=np.arctan(a2/a1)
-arg1_deg=math.degrees(np.arctan(a2/a1))
-
-print('arg1=',arg1)
-z1=r1*(np.array([math.cos(arg1),math.sin(arg1)]))
-#z2=np.array([math.cos(arg1),math.sin(arg1)])
-print('z1=',z1)
+m1=[[a1, -a2], 
+    [a2, a1]]
+print('m1=',m1)
+print('len-m1=',len(m1))
+p1=[[1], 
+    [0]]
 
 a3=1
 a4=-1
-m2=np.array([a3,a4])
-#print(m2)
-r2= np.sqrt(a3**2 + a4**2)
-#print(r2)
-arg2=np.arctan(a4/a3)
-arg2_deg=math.degrees(np.arctan(a4/a3))
-print('arg2=',arg2)
-z2=r2*(np.array([math.cos(arg2),math.sin(arg2)]))
-print('z2=',z2)
-inv_z2=(1/r2)*(np.array([((-1)**(1+1))*math.cos(arg2),((-1)**(1+2))*math.sin(arg2)]))
-inv_arg2=((-1)**(1+2))*arg2
-print('inv_arg2',inv_arg2)
-print('inv_z2',inv_z2)
-z1_inv_z2=(r1/r2)*(np.array([math.cos(arg1+inv_arg2),math.sin(arg1+inv_arg2)]))
-print('z1_inv_z2=',z1_inv_z2)
+m2 = [[a3, -a4], 
+    [a4, a3]]
+print('m2=',m2)
+
+y1 = np.linalg.inv(m2)
+print('y1=',y1)
+
+y2 = np.linalg.inv(m1)
+print('y2=',y2)
 
 
-z3=z2
-print(z3)
+result1 = [[0,0],  
+               [0,0]]  
+ 
+ 
+for i in range(len(m1)):  
+   for j in range(len(y1[0])):  
+       for k in range(len(y1)):  
+           result1[i][j] += m1[i][k] * y1[k][j]  
+print(result1)  
 
-z4=(1/r1)*(np.array([((-1)**(1+1))*math.cos(arg1),((-1)**(1+2))*math.sin(arg1)]))
-print('z4=',z4)
+result2 = [[0],  
+               [0]]         
 
-inv_arg1=((-1)**(1+2))*arg1
-print(inv_arg1)
-z3_z4=(r2/r1)*(np.array([math.cos(inv_arg1+arg2),math.sin(inv_arg1+arg2)]))
-print('z3_z4=',z3_z4)
+for i in range(len(result1)):  
+   for j in range(len(p1[0])):  
+       for k in range(len(p1)):  
+           result2[i][j] += result1[i][k] * p1[k][j]  
+print(result2) 
 
-sub_z= z1_inv_z2 - z3_z4
-print('sub_z=',sub_z)
 
-modulus_value= LA.norm(sub_z)
-print('modulus_value',modulus_value)
+
+result3 = [[0,0],  
+               [0,0]]  
+ 
+  
+for i in range(len(m2)):  
+   for j in range(len(y2[0])):  
+       for k in range(len(y2)):  
+           result3[i][j] += m2[i][k] * y2[k][j]  
+print(result3)
+
+result4 = [[0],  
+               [0]]         
+
+for i in range(len(result3)):  
+   for j in range(len(p1[0])):  
+       for k in range(len(p1)):  
+           result4[i][j] += result3[i][k] * p1[k][j]  
+print(result4)  
+
+#sub_result = result2 - result4
+#print('sub_result',sub_result)
+
+
+result5 = [[0],
+         [0]]
+         
+
+for i in range(len(result2)):
+   # iterate through columns
+   for j in range(len(result2[0])):
+       result5[i][j] = result2[i][j] - result4[i][j]
+print(result5)
+
+norm_result5 = LA.norm(result5)
+print('normalized final result=',norm_result5)
