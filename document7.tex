@@ -291,20 +291,23 @@ svn co https://github.com/gadepall/school/trunk/ncert/geometry/figs
 \section{Problem}
 %\input{./chapters/problem.tex}
 Find the modulus of :
+%\begin{align}
+%\frac{\begin{pmatrix}
+%      1 \\ 
+%      1 \\
+%      \end{pmatrix}}{\begin{pmatrix}
+%      1 \\ 
+%      -1 \\
+%      \end{pmatrix}} - \frac{\begin{pmatrix}
+%      1 \\ 
+%      -1 \\
+%      \end{pmatrix}}{\begin{pmatrix}
+%      1 \\ 
+%      1 \\
+%      \end{pmatrix}}
+%\end{align}
 \begin{align}
-\frac{\begin{pmatrix}
-      1 \\ 
-      1 \\
-      \end{pmatrix}}{\begin{pmatrix}
-      1 \\ 
-      -1 \\
-      \end{pmatrix}} - \frac{\begin{pmatrix}
-      1 \\ 
-      -1 \\
-      \end{pmatrix}}{\begin{pmatrix}
-      1 \\ 
-      1 \\
-      \end{pmatrix}}
+\frac{\myvec{1\\1}}{\myvec{1\\-1}} - \frac{\myvec{1\\-1}}{\myvec{1\\1}}
 \end{align}
 
 %\section{Construction}
@@ -431,182 +434,79 @@ Find the modulus of :
 %\end{aligned}
 %\end{equation}
 
-In general, any complex number can be expressed in matrix representation as follows:\\
+In general, any complex number can be expressed in matrix representation as follows:
 \begin{align}
-     \begin{pmatrix}
-      a_1 \\ 
-      a_2 \\
-      \end{pmatrix} = \begin{pmatrix}
-      a_1    & -a_2\\ 
-      a_2    & a_1\\
-      \end{pmatrix}\begin{pmatrix}
-      1\\ 
-      0\\
-      \end{pmatrix}
+     \myvec{a_1\\a_2}= \myvec{a_1 & -a_2\\a_2 & a_1}\myvec{1\\0}
 \end{align}
 
-In our case, \\
+In our case, 
+%\begin{align}
+%     \begin{pmatrix}
+%      1 \\ 
+%      1 \\
+%      \end{pmatrix} = \begin{pmatrix}
+%      1    & -1\\ 
+%      1    & 1\\
+%      \end{pmatrix}\begin{pmatrix}
+%      1\\ 
+%      0\\
+%      \end{pmatrix}
+%\end{align}
 \begin{align}
-     \begin{pmatrix}
-      1 \\ 
-      1 \\
-      \end{pmatrix} = \begin{pmatrix}
-      1    & -1\\ 
-      1    & 1\\
-      \end{pmatrix}\begin{pmatrix}
-      1\\ 
-      0\\
-      \end{pmatrix}
+\myvec{1\\1}= \myvec{1 & -1\\1 & 1}\myvec{1\\0}
 \end{align}
 
-$\&$
+%\begin{align}
+%     \begin{pmatrix}
+%      1 \\ 
+%      -1 \\
+%      \end{pmatrix} = \begin{pmatrix}
+%      1    & 1\\ 
+%      -1    & 1\\
+%      \end{pmatrix}\begin{pmatrix}
+%      1\\ 
+%      0\\
+%      \end{pmatrix}
+%\end{align}
 
 \begin{align}
-     \begin{pmatrix}
-      1 \\ 
-      -1 \\
-      \end{pmatrix} = \begin{pmatrix}
-      1    & 1\\ 
-      -1    & 1\\
-      \end{pmatrix}\begin{pmatrix}
-      1\\ 
-      0\\
-      \end{pmatrix}
+\myvec{1\\-1}= \myvec{1 & 1\\-1 & 1}\myvec{1\\0}
 \end{align}
 
-Now,\\
+Now,
 
 \begin{align}
-     \frac{\begin{pmatrix}
-      1 \\ 
-      1 \\
-      \end{pmatrix}}{\begin{pmatrix}
-      1 \\ 
-      -1 \\
-      \end{pmatrix}} = \begin{pmatrix}
-      1    & -1\\ 
-      1    & 1\\
-      \end{pmatrix}\begin{pmatrix}
-      1    & 1\\ 
-      -1    & 1\\
-      \end{pmatrix}^{-1}\begin{pmatrix}
-      1\\ 
-      0\\
-      \end{pmatrix}\\
-      = \begin{pmatrix}
-      0\\ 
-      1\\
-      \end{pmatrix}
+     \frac{\myvec{1\\1}}{\myvec{1\\-1}}= \myvec{1 & -1\\1 & 1}\myvec{1 & 1\\-1 & 1}^{-1}\myvec{1\\0}\\
+      = \myvec{0\\1}
 \end{align}
 
-Similarly,\\
+Similarly,
 
 \begin{align}
-     \frac{\begin{pmatrix}
-      1 \\ 
-      -1 \\
-      \end{pmatrix}}{\begin{pmatrix}
-      1 \\ 
-      1 \\
-      \end{pmatrix}} = \begin{pmatrix}
-      1    & 1\\ 
-      -1    & 1\\
-      \end{pmatrix}\begin{pmatrix}
-      1    & -1\\ 
-      1    & 1\\
-      \end{pmatrix}^{-1}\begin{pmatrix}
-      1\\ 
-      0\\
-      \end{pmatrix}\\
-      = \begin{pmatrix}
-      0\\ 
-      -1\\
-      \end{pmatrix}
+     \frac{\myvec{1\\-1}}{\myvec{1\\1}} = \myvec{1 & 1\\-1 & 1}\myvec{1 & -1\\1 & 1}^{-1}\myvec{1\\0}\\
+      = \myvec{0\\-1}
 \end{align}
 
-So,\\
+So,
 
 \begin{align}
-\frac{\begin{pmatrix}
-      1 \\ 
-      1 \\
-      \end{pmatrix}}{\begin{pmatrix}
-      1 \\ 
-      -1 \\
-      \end{pmatrix}} - \frac{\begin{pmatrix}
-      1 \\ 
-      -1 \\
-      \end{pmatrix}}{\begin{pmatrix}
-      1 \\ 
-      1 \\
-      \end{pmatrix}} = \begin{pmatrix}
-      0\\ 
-      1\\
-      \end{pmatrix} - \begin{pmatrix}
-      0\\ 
-      -1\\
-      \end{pmatrix} \\
-      = \begin{pmatrix}
-      0\\ 
-      2\\
-      \end{pmatrix}
+\frac{\myvec{1\\1}}{\myvec{1\\-1}} - \frac{\myvec{1\\-1}}{\myvec{1\\1}} = \myvec{0\\1} - \myvec{0\\-1} \\
+      = \myvec{0\\2}
 \end{align}
 \section{Solution}
-Now, according to the problem statement:\\
+Now, according to the problem statement:
 \begin{align}
-\frac{\begin{pmatrix}
-      1 \\ 
-      1 \\
-      \end{pmatrix}}{\begin{pmatrix}
-      1 \\ 
-      -1 \\
-      \end{pmatrix}} - \frac{\begin{pmatrix}
-      1 \\ 
-      -1 \\
-      \end{pmatrix}}{\begin{pmatrix}
-      1 \\ 
-      1 \\
-      \end{pmatrix}} \\
-      = \begin{pmatrix}
-      0\\ 
-      2\\
-      \end{pmatrix}
+\frac{\myvec{1\\1}}{\myvec{1\\-1}} - \frac{\myvec{1\\-1}}{\myvec{1\\1}} \\
+      = \myvec{0\\2}
 \end{align} 
 $\therefore$ 
 \begin{align}
-\norm{\frac{\begin{pmatrix}
-      1 \\ 
-      1 \\
-      \end{pmatrix}}{\begin{pmatrix}
-      1 \\ 
-      -1 \\
-      \end{pmatrix}} - \frac{\begin{pmatrix}
-      1 \\ 
-      -1 \\
-      \end{pmatrix}}{\begin{pmatrix}
-      1 \\ 
-      1 \\
-      \end{pmatrix}}} \\
-      =\norm{\begin{pmatrix}
-      0 \\ 
-      2 \\
-      \end{pmatrix}} = \sqrt{0^2 + 2^2} = 2
+\norm{\frac{\myvec{1\\1}}{\myvec{1\\-1}} - \frac{\myvec{1\\-1}}{\myvec{1\\1}}} \\
+      =\norm{\myvec{0\\2}} = \sqrt{0^2 + 2^2} = 2
 \end{align} 
 So, we can say that the modulus value of 
 \begin{align}
-\frac{\begin{pmatrix}
-      1 \\ 
-      1 \\
-      \end{pmatrix}}{\begin{pmatrix}
-      1 \\ 
-      -1 \\
-      \end{pmatrix}} - \frac{\begin{pmatrix}
-      1 \\ 
-      -1 \\
-      \end{pmatrix}}{\begin{pmatrix}
-      1 \\ 
-      1 \\
-      \end{pmatrix}}
+\frac{\myvec{1\\1}}{\myvec{1\\-1}} - \frac{\myvec{1\\-1}}{\myvec{1\\1}}
 \end{align} is 2.
 
 \renewcommand{\theequation}{\theenumi}
